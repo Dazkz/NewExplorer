@@ -5,7 +5,7 @@ const Forbidden = require('../errors/forbidden');
 const errMessages = require('../consts/errorMessages');
 
 module.exports.getArticles = (req, res, next) => {
-  Articles.findOne({ owner: req.user._id })
+  Articles.find({ owner: req.user._id })
     .then((articles) => {
       if (!articles) {
         throw new NotFoundError(errMessages.notFoundArticlesMessage);

@@ -13,8 +13,8 @@ const userSchema = new mongoose.Schema({
     validate: (email) => validator.isEmail(email),
   },
   password: {
-    select: false,
     type: String,
+    select: false,
   },
   name: {
     type: String,

@@ -14,3 +14,4 @@ node_modules
 .idea
 .env
 __test__
+.README.md

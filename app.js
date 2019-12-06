@@ -13,10 +13,11 @@ const error = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const limiter = require('./middlewares/limiter');
 const errMessages = require('./consts/errorMessages');
+const config = require('./config/config');
 
 const app = express();
 
-mongoose.connect(`${process.env.DB_URL}`, {
+mongoose.connect(config.dbURL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
