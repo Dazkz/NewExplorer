@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { Joi, celebrate, errors } = require('celebrate');
@@ -17,7 +18,7 @@ const config = require('./config/config');
 
 const app = express();
 
-mongoose.connect(config.dbURL, {
+mongoose.connect(process.env.NODE_ENV === 'production' ? process.env.DB_URL : config.dbURL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
